@@ -108,3 +108,26 @@ const salesByWeek = [
 // Display the first and last name of the sales agent.
 // Display all keys and values for the car sold.
 // Display the gross profit made on the sale.
+
+const outputElement = document.querySelector("#sales");
+outputElement.innerHTML += "<h1> Car Sales </h1>"
+
+var person = {};
+
+salesByWeek.forEach(carSold => {
+    outputElement.innerHTML += "<hr>"
+    firstName = carSold.sales_agent.first_name;
+    lastName = carSold.sales_agent.last_name;
+    outputElement.innerHTML += `<div> ${firstName}  ${lastName}</div>`
+    for(const entry of Object.entries(carSold.vehicle)) {
+        outputElement.innerHTML += `<div> ${entry[0]}: ${entry[1]}</div>`
+    }
+})
+salesByWeek.forEach(profit => {
+for(const value of Object.values(profit.gross_profit)) {
+    outputElement.innerHTML += `<h1> ${value[1]}</h1>`
+    
+}
+
+})
+
