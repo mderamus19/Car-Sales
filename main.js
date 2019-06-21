@@ -113,21 +113,25 @@ const outputElement = document.querySelector("#sales");
 outputElement.innerHTML += "<h1> Car Sales </h1>"
 
 var person = {};
+var profit = {};
 
 salesByWeek.forEach(carSold => {
     outputElement.innerHTML += "<hr>"
     firstName = carSold.sales_agent.first_name;
     lastName = carSold.sales_agent.last_name;
-    outputElement.innerHTML += `<div> ${firstName}  ${lastName}</div>`
+    outputElement.innerHTML += `<h2> ${firstName}  ${lastName}</h2>`
+    profit = carSold.gross_profit;
+    
+    
     for(const entry of Object.entries(carSold.vehicle)) {
         outputElement.innerHTML += `<div> ${entry[0]}: ${entry[1]}</div>`
     }
+    outputElement.innerHTML += `<h2>Profit:$${profit}</h2>`
 })
-salesByWeek.forEach(profit => {
-for(const value of Object.values(profit.gross_profit)) {
-    outputElement.innerHTML += `<h1> ${value[1]}</h1>`
-    
-}
+// salesByWeek.forEach(profit => {
+// for(const value of Object.values(profit.gross_profit)) {
+//     outputElement.innerHTML += `<h1> ${value}</h1>`
+// }
 
-})
+// })
 
